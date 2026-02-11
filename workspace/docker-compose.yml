@@ -1,0 +1,33 @@
+services:
+  translation-api:
+    image: wiremock/wiremock:3.5.2
+    ports:
+      - "1080:8080"
+    environment:
+      WIREMOCK_OPTIONS: "--verbose"
+    volumes:
+      - ./wiremock/translation-api:/home/wiremock
+  translation-api-redoc:
+    image: redocly/redoc
+    ports:
+      - "8080:80"
+    environment:
+      SPEC_URL: /openapi.yaml
+    volumes:
+      - ./openapi/translation_api.yml:/usr/share/nginx/html/openapi.yaml
+  product-api:
+    image: wiremock/wiremock:3.5.2
+    ports:
+      - "1081:8080"
+    environment:
+      WIREMOCK_OPTIONS: "--verbose"
+    volumes:
+      - ./wiremock/product-api:/home/wiremock
+  product-api-redoc:
+    image: redocly/redoc
+    ports:
+      - "8081:80"
+    environment:
+      SPEC_URL: /openapi.yaml
+    volumes:
+      - ./openapi/product_api.yml:/usr/share/nginx/html/openapi.yaml

@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: Product api
+  version: "1.0"
+
+servers:
+  - url: http://localhost:1081/
+tags:
+  - name: Product
+paths:
+  /products/{productId}:
+    get:
+      tags:
+        - Product
+      summary: Retrieve a product.
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+            examples:
+              - "P123"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        "404":
+          description: Product not found
+
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          examples:
+            - "P123"
+        name:
+          type: string
+          examples:
+            - "SHIRT"
+        attributes:
+          type: object
+          description: "A map of dynamic product attributes"
+          additionalProperties:
+            type: string
+          examples:
+            - color: "RED"
+              size: "MEDIUM"
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/User"
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

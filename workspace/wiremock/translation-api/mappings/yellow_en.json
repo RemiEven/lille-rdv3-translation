@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/translations",
+    "queryParameters": {
+      "key": {
+        "equalTo": "YELLOW"
+      },
+      "lang": {
+        "equalTo": "en"
+      }
+    },
+    "headers": {
+      "x-api-key": {
+        "equalTo": "T1234"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "delayDistribution": {
+      "type": "uniform",
+      "lower": 300,
+      "upper": 700
+    },
+    "jsonBody": {
+      "key": "YELLOW",
+      "lang": "en",
+      "label": "yellow"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Debian",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.extend.yml"],
+  "service": "java",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "postStartCommand": "/bin/bash .devcontainer/replace_urls.sh",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["Orta.vscode-jest"]
+    }
+  }
+}
