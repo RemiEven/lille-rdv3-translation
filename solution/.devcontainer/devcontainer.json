@@ -4,7 +4,7 @@
   "service": "java",
   "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
-  "postStartCommand": "/bin/bash .devcontainer/replace_urls.sh",
+  "initializeCommand": "/bin/bash .devcontainer/replace_urls.sh",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "24"
@@ -14,5 +14,6 @@
     "vscode": {
       "extensions": ["Orta.vscode-jest"]
     }
-  }
+  },
+  "forwardPorts": [8080, 8081]
 }

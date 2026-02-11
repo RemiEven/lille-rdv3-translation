@@ -7,7 +7,7 @@ services:
       WIREMOCK_OPTIONS: "--verbose"
     volumes:
       - ./wiremock/translation-api:/home/wiremock
-  translation-api-redoc:
+  translation-api-doc:
     image: redocly/redoc
     ports:
       - "8080:80"
@@ -23,7 +23,7 @@ services:
       WIREMOCK_OPTIONS: "--verbose"
     volumes:
       - ./wiremock/product-api:/home/wiremock
-  product-api-redoc:
+  product-api-doc:
     image: redocly/redoc
     ports:
       - "8081:80"
