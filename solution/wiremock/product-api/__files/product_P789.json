@@ -1,7 +1,7 @@
 {
   "id": "P789",
-  "name": "BOOTS",
+  "name": "SHOES",
   "attributes": {
-    "color": "GREEN"
+    "COLOR": "RED"
   }
 }

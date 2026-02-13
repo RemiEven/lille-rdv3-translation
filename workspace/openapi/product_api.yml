@@ -7,6 +7,8 @@ servers:
   - url: http://localhost:1081/
 tags:
   - name: Product
+security:
+  - X-Api-Key: []
 paths:
   /products/{productId}:
     get:
@@ -53,8 +55,8 @@ components:
           additionalProperties:
             type: string
           examples:
-            - color: "RED"
-              size: "MEDIUM"
+            - COLOR: "RED"
+              SIZE: "MEDIUM"
       description: List of user object
       content:
         application/json:
@@ -63,7 +65,7 @@ components:
             items:
               $ref: "#/components/schemas/User"
   securitySchemes:
-    api_key:
+    X-Api-Key:
       type: apiKey
-      name: x-api-key
+      name: X-Api-Key
       in: header

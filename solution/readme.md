@@ -16,8 +16,8 @@ Here is the user story you've received:
 The frontend developers of your teams are currently on vacations, but before that you agreed on the following response body:
 ```json
 {
-    "id":"P123",
-    "name":"shirt",
+    "id": "P123",
+    "name": "chemise",
     "description": [
         "couleur: rouge",
         "taille: moyen"

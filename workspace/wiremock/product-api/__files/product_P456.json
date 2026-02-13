@@ -2,6 +2,6 @@
   "id": "P456",
   "name": "BOOTS",
   "attributes": {
-    "color": "GREEN"
+    "COLOR": "GREEN"
   }
 }
