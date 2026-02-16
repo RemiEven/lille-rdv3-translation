@@ -13,9 +13,7 @@ export function mapAttributesToDescription(
 
   return Object.entries(attributes).map(
     ([attributeKey, attributeValue], index) => {
-      const translatedKey = translations.find(
-        (t) => t.key === attributeKey.toUpperCase(),
-      );
+      const translatedKey = translations.find((t) => t.key === attributeKey);
       const translatedValue = translations.find(
         (t) => t.key === attributeValue,
       );

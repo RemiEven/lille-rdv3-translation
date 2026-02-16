@@ -11,20 +11,14 @@ app.use("/products/:productId", async (req, res) => {
   const { productId } = req.params;
   const language = req.query.language || "en";
   const product = await getProduct(productId as string);
-
   const attributes = product.attributes ?? {};
-  const keys = [
-    product.name,
-    ...Object.entries(attributes).flatMap(([key, value]) => [
-      key.toUpperCase(),
-      value,
-    ]),
-  ];
+
+  const keys = [product.name, ...Object.entries(attributes).flat(1)];
   const translations = await getTranslations(language as string, keys);
 
   const translatedProduct = {
     id: productId,
-    name: translations.find((t) => t.key === product.name.toUpperCase())?.label ?? "",
+    name: translations.find((t) => t.key === product.name)?.label ?? "",
     description: mapAttributesToDescription(attributes, translations),
   };
 
